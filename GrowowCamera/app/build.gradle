@@ -5,21 +5,25 @@ model {
         compileSdkVersion 23
         buildToolsVersion "23.0.1"
 
-        defaultConfig {
-            applicationId "robotsmom.growowcamera"
-            minSdkVersion 16
-            targetSdkVersion 23
+        defaultConfig.with {
+            applicationId = "robotsmom.growowcamera"
+            minSdkVersion.apiLevel = 16
+            targetSdkVersion.apiLevel = 23
             versionCode 1
             versionName "1.0"
 
         }
 
-        buildTypes {
+        android.buildTypes {
             release {
-                minifyEnabled false
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                minifyEnabled = false
+                proguardFiles.add(file('proguard-rules.pro'))
             }
         }
+    }
+
+    android.ndk {
+        moduleName = "native"
     }
 
     dependencies {
